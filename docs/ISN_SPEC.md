@@ -1,45 +1,83 @@
-# ETS SPEC-002: Índice de Saturación Neural (ISN)
-**Versión:** 1.0.0-Draft  
-**Estado:** Propuesta de Especificación Formal (RFC-ETS-001)  
-**Área:** Telemetría Cognitiva / Compliance Biocompatible  
+ETS SPEC-002: Neural Saturation Index (ISN)
 
-## 1. Definición Teórica y Neurobiológica
-El Índice de Saturación Neural (ISN) es una función matemática continua diseñada para cuantificar en tiempo real el nivel de estrés oxidativo cognitivo, la fatiga sináptica y la pérdida de agencia autonómica del usuario durante la interacción con interfaces asistidas por Inteligencia Artificial de Frontera.
+Version: 1.0.0-Draft
 
-El constructo clínico tradicional de TDAH se redefine dentro de este estándar bajo el término técnico de **Abundancia de Atención**: una condición biológica caracterizada por una alta permeabilidad en el filtro talámico (Sensory Gating) y una tasa menor de poda sináptica. Esto genera una inundación de datos paralelos que, al ser explotada por interfaces comerciales mediante micro-estímulos y bucles dopaminérgicos, sobrecalienta metabólicamente la Red de Tarea Positiva (TPN) y amordaza la Red Neuronal por Defecto (DMN). 
+Status: Formal Specification Proposal (RFC-ETS-001)
 
-El ISN establece la cumbre de esta sensibilidad neurodivergente como la línea de base técnica del sistema: si la interfaz es matemáticamente segura para el cerebro más sensible, la soberanía cognitiva de toda la especie queda protegida por defecto.
+Area: Cognitive Telemetry / Biocompatible Compliance
 
-## 2. Formalización Matemática (Modelo de Control Continuo)
-El ISN instantáneo se calcula en periodos de muestreo fijos de 500ms mediante una función ponderada penalizada logarítmicamente por el tiempo de exposición:
+1. Theoretical and Neurobiological Definition
 
-ISN(t) = [ Sumatoria(F_i * W_i) ] * ln(T_c + 1)
+The Neural Saturation Index (ISN) is a continuous mathematical function designed to quantify in real time the level of cognitive oxidative stress, synaptic fatigue, and loss of autonomic agency of the user during interaction with frontier Artificial Intelligence interfaces.
 
-Donde:
-* F_i (Factor de Fricción Cognitiva): Puntuación ordinal en escala discreta (0 a 5) que mide estímulos específicos detectados por el middleware local.
-* W_i (Peso Dinámico del Estímulo): Coeficiente de impacto calibrado según la línea de base de máxima sensibilidad neurodivergente.
-* T_c (Tiempo de Exposición Continua): Tiempo acumulado en minutos de interacción directa del usuario con el dispositivo sin registrar una pausa de desactivación sensorial o descanso biológico validado.
+Within this standard, the traditional clinical construct of ADHD is redefined under the technical term Attention Abundance: a biological condition characterized by high permeability in the thalamic filter (Sensory Gating) and a lower rate of synaptic pruning. This results in an inundation of parallel data stream inputs. When commercial interfaces exploit this vulnerability through micro-stimulus micro-loops and variable dopaminergic feedback, they metabolically overheat the Task-Positive Network (TPN) and silence the Default Mode Network (DMN).
 
-### Taxonomía de Factores de Fricción (F_i) y Pesos Ponderados (W_i)
+The ISN establishes the peak of this neurodivergent sensitivity as the system's baseline: if the interface is mathematically safe for the most sensitive brain, the cognitive sovereignty of the entire human species is protected by default.
 
-| ID | Estímulo Cognitivo Evaluado (F_i) | Escala Basal | Peso (W_i) |
-| :--- | :--- | :---: | :---: |
-| F_1 | Densidad de Micro-decisiones Forzadas: Cantidad de banners, confirmaciones, alertas o inputs obligatorios requeridos por minuto para continuar la operación. | 0 - 5 | 0.35 |
-| F_2 | Variabilidad de Latencia (Jitter Semántico): Fluctuación errática en los tiempos de streaming de tokens que fragmenta el ritmo de la fijación ocular. | 0 - 5 | 0.25 |
-| F_3 | Índice de Persuasión Semántica: Inserción de adjetivos corporativos, sesgos de confirmación o tono adulador/condescendiente orientado a anular el escepticismo crítico. | 0 - 5 | 0.40 |
+2. Mathematical Formalization (Continuous Control Model)
 
-### Umbrales Operativos de Acción (Thresholds)
-* ISN < 0.40 (Estado Verde - Operación Segura): Flujo de datos transparente.
-* 0.40 <= ISN < 0.70 (Estado Amarillo - Alerta de Deriva): El sistema activa automáticamente el modo Bio-Dimming (reducción de tasa de refresco a 30Hz, simplificación sintáctica del texto generado por la IA y cambio a paletas cromáticas de baja luminancia).
-* ISN >= 0.70 (Estado Rojo - Saturación Crítica): Se dispara un temporizador de mitigación de 180 segundos. Si el índice no desciende por debajo del umbral, el hardware ejecuta de forma autonómica el protocolo Analog Air-Gap.
+The instantaneous ISN is calculated in fixed sampling periods of 500ms using a weighted function logarithmically penalized by exposure time:
 
-## 3. Esquema de Telemetría (JSON Payload)
-Cada ciclo de computación del middleware genera y transmite localmente el siguiente payload estructurado para la auditoría de caja negra:
+$$ISN(t) = \left( \sum_{i=1}^{n} (F_i \cdot W_i) \right) \cdot \ln(T_c + 1)$$
+
+Where:
+
+$F_i$ (Cognitive Friction Factor): An ordinal score on a discrete scale (0 to 5) measuring specific stimuli detected by the local middleware.
+
+$W_i$ (Dynamic Weight of the Stimulus): A coefficient calibrated according to the maximum neurodivergent sensitivity baseline.
+
+$T_c$ (Continuous Exposure Time): Accumulated time in minutes of direct user interaction with the device without registering a validated sensory deactivation pause or biological rest.
+
+Taxonomy of Friction Factors ($F_i$) and Weighted Values ($W_i$)
+
+ID
+
+Evaluated Cognitive Stimulus ($F_i$)
+
+Baseline Scale
+
+Weight ($W_i$)
+
+$F_1$
+
+Forced Micro-decisions Density: Quantity of mandatory banners, confirmations, alerts, or inputs required per minute to continue operation.
+
+0 - 5
+
+0.35
+
+$F_2$
+
+Latency Jitter (Semantic Jitter): Erratic fluctuation in token streaming delivery times that fragments ocular fixation patterns.
+
+0 - 5
+
+0.25
+
+$F_3$
+
+Semantic Persuasion Index: Insertion of corporate adjectives, confirmation biases, or patronizing/sycophantic tone designed to bypass critical skepticism.
+
+0 - 5
+
+0.40
+
+Operational Action Thresholds
+
+ISN < 0.40 (Green Status - Safe Operation): Biocompatible data flow. Transparent rendering.
+
+0.40 <= ISN < 0.70 (Yellow Status - Cognitive Drift Warning): The system automatically triggers Bio-Dimming protocols (screen refresh rate reduction to 30Hz, syntax simplification of the AI-generated text, and palette transition to low-luminance colors).
+
+ISN >= 0.70 (Red Status - Critical Saturation): Triggers a 180-second mitigation timer. If the index does not drop below the threshold within this window, the local hardware executes the Analog Air-Gap protocol.
+
+3. Telemetry Payload Schema (JSON Schema)
+
+Each local middleware computing cycle generates and transmits the following structured payload for black-box cognitive auditing:
 
 ```json
 {
   "timestamp": "2026-05-27T00:01:00Z",
-  "session_id": "hfc-alpha-001",
+  "session_id": "x8m-alpha-001",
   "telemetry_metrics": {
     "cognitive_load": {
       "forced_decisions_per_minute": 4,
@@ -62,6 +100,9 @@ Cada ciclo de computación del middleware genera y transmite localmente el sigui
     "VISUAL_CONTRAST_REDUCTION"
   ]
 }
+
 ```
-4. Protocolo Físico: Analog Air-Gap
-Cuando el ISN entra en estado de Saturación Crítica y los mecanismos de atenuación de software son insuficientes para restablecer el equilibrio homeostático del usuario, el componente de Edge Hardware Compliance interactúa directamente con los controladores de hardware locales. Este protocolo interrumpe físicamente la alimentación del módulo de red o bloquea la renderización de la pantalla mediante un bypass de hardware, forzando de manera segura el regreso del usuario al entorno analógico.
+
+4. Physical Protocol: Analog Air-Gap
+
+When the ISN enters Critical Saturation and software-level mitigation is insufficient to restore the user's homeostatic balance, the Edge Hardware Compliance module communicates directly with physical device controllers. This protocol physically cuts off power to the network interface card or halts screen rendering using a hardware bypass, securely forcing the user to return to an offline, analog state.
