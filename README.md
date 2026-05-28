@@ -46,7 +46,7 @@ To contribute:
    * [Decentralized Governance and Cryptoeconomics](docs/GOVERNANCE_AND_DLT.md)
    * [Compliance Test Suite (ISN Simulator)](docs/COMPLIANCE_TEST_SUITE.md)
    * [Core Ethos, Civilizational Manifesto and Implementation Roadmap](docs/ETHOS_AND_ROADMAP.md)
-   * [Compliance Test Suite (ISN Simulator)](docs/COMPLIANCE_TEST_SUITE.md)
+   * [State of the Art and Global Regulatory Compliance Mapping](docs/REGULATORY_COMPLIANCE_MATRIX.md)
 2. Open a thread in the Issues section to discuss structural improvements.
 3. Submit a Pull Request for architectural updates.
 
