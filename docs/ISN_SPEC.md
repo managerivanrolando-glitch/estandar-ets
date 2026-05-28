@@ -62,6 +62,6 @@ Cada ciclo de computación del middleware genera y transmite localmente el sigui
     "VISUAL_CONTRAST_REDUCTION"
   ]
 }
-
+```
 4. Protocolo Físico: Analog Air-Gap
 Cuando el ISN entra en estado de Saturación Crítica y los mecanismos de atenuación de software son insuficientes para restablecer el equilibrio homeostático del usuario, el componente de Edge Hardware Compliance interactúa directamente con los controladores de hardware locales. Este protocolo interrumpe físicamente la alimentación del módulo de red o bloquea la renderización de la pantalla mediante un bypass de hardware, forzando de manera segura el regreso del usuario al entorno analógico.
