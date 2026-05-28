@@ -45,6 +45,8 @@ To contribute:
    * [Coherence Layer Architecture (Middleware)](docs/COHERENCE_LAYER_ARCHITECTURE.md)
    * [Decentralized Governance and Cryptoeconomics](docs/GOVERNANCE_AND_DLT.md)
    * [Compliance Test Suite (ISN Simulator)](docs/COMPLIANCE_TEST_SUITE.md)
+   * [Core Ethos, Civilizational Manifesto and Implementation Roadmap](docs/ETHOS_AND_ROADMAP.md)
+   * [Compliance Test Suite (ISN Simulator)](docs/COMPLIANCE_TEST_SUITE.md)
 2. Open a thread in the Issues section to discuss structural improvements.
 3. Submit a Pull Request for architectural updates.
 
