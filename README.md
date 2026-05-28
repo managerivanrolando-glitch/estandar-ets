@@ -35,10 +35,16 @@ To ensure structural integrity, the ETS Standard is governed by a decentralized 
 
 This is a living framework. We formally invite software engineers, neuroscientists, AI safety researchers, and regulators to audit this document, raise technical objections, and propose optimizations.
 
+### How to Contribute (RFC Process)
+
+This is a living framework. We formally invite software engineers, neuroscientists, AI safety researchers, and regulators to audit this document, raise technical objections, and propose optimizations.
+
 To contribute:
 1. Review the complete specification documents in the [/docs](docs/) folder:
    * [ISN Specification (Metrics)](docs/ISN_SPEC.md)
    * [Coherence Layer Architecture (Middleware)](docs/COHERENCE_LAYER_ARCHITECTURE.md)
+   * [Decentralized Governance and Cryptoeconomics](docs/GOVERNANCE_AND_DLT.md)
+   * [Compliance Test Suite (ISN Simulator)](docs/COMPLIANCE_TEST_SUITE.md)
 2. Open a thread in the Issues section to discuss structural improvements.
 3. Submit a Pull Request for architectural updates.
 
