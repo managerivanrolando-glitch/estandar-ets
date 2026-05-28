@@ -34,10 +34,15 @@ Para garantizar la integridad estructural, el Estándar ETS se rige por una arqu
 ## 💬 Cómo Contribuir (Proceso RFC)
 Este es un marco vivo. Invitamos formalmente a ingenieros de software, neurocientíficos, investigadores de seguridad de IA y reguladores a auditar este documento, plantear objeciones técnicas y proponer optimizaciones.
 
-Para contribuir:
-1. Revise los documentos de especificación completa en la carpeta `/docs`.
-2. Abra un hilo en la sección de **Issues** para debatir mejoras estructurales.
-3. Envíe un **Pull Request** para actualizaciones arquitectónicas.
+### Cómo Contribuir (Proceso RFC)
 
+Este es un marco vivo. Invitamos formalmente a ingenieros de software, neurocientíficos, investigadores de seguridad de IA y reguladores a auditar este documento, plantear objeciones técnicas y proponer optimizaciones.
+
+Para contribuir:
+1. Revise los documentos de especificación completa en la carpeta [/docs](docs/):
+   * [Especificación del ISN (Métricas)](docs/ISN_SPEC.md)
+   * [Arquitectura de la Capa de Coherencia (Middleware)](docs/COHERENCE_LAYER_ARCHITECTURE.md)
+2. Abra un hilo en la sección de Issues para debatir mejoras estructurales.
+3. Envíe un Pull Request para actualizaciones arquitectónicas.
 ---
 **La simbiosis con la tecnología es inevitable, pero el control final debe seguir siendo biológico.**
