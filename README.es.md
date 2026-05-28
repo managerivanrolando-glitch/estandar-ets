@@ -48,6 +48,8 @@ Para contribuir:
    * [Arquitectura de la Capa de Coherencia (Middleware)](docs/COHERENCE_LAYER_ARCHITECTURE.md)
    * [Gobernanza Descentralizada y Criptoeconomía](docs/GOVERNANCE_AND_DLT.md)
    * [Suite de Pruebas de Cumplimiento (Simulador ISN)](docs/COMPLIANCE_TEST_SUITE.md)
+   * [Core Ethos, Civilizational Manifesto and Implementation Roadmap](docs/ETHOS_AND_ROADMAP.md)
+   * [State of the Art and Global Regulatory Compliance Mapping](docs/REGULATORY_COMPLIANCE_MATRIX.md)
 2. Abra un hilo en la sección de Issues para debatir mejoras estructurales.
 3. Envíe un Pull Request para actualizaciones arquitectónicas.
 
