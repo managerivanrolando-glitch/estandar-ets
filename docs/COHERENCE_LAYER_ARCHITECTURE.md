@@ -1,58 +1,54 @@
-ETS SPEC-003: Arquitectura de la Capa de Coherencia (Middleware)
+# ETS SPEC-003: Coherence Layer Architecture (Middleware)
+**Version:** 1.0.0-Draft  
+**Status:** Formal Specification Proposal (RFC-ETS-001)  
+**Area:** Software Architecture / Mission-Critical Infrastructure  
 
-Versión: 1.0.0-Draft
+## 1. System Topology and Interception Flow
+The Coherence Layer runs locally on the user's end device (Edge Computing), operating as a Local Autonomous Reverse Proxy at the application layer (OSI Layer 7). It intercepts all bidirectional data flows between the local client and the remote APIs of Big Tech frontier models.
 
-Estado: Propuesta de Especificación Formal (RFC-ETS-001)
-
-Área: Arquitectura de Software / Infraestructura de Misión Crítica
-
-1. Topología del Sistema y Flujo de Intercepción
-
-La Capa de Coherencia se ejecuta localmente en el dispositivo del usuario (Edge Computing) actuando como un Proxy Inverso Local Autónomo en la capa de aplicación (Capa 7 OSI). Intercepta de forma obligatoria los flujos de datos bidireccionales entre el cliente local y las APIs remotas de los Modelos de Frontera de las Big Tech.
-
-Diagrama de Flujo del Interceptor Pattern
-
-[Biología Humana (Usuario)]
+### Interceptor Pattern Data Flow Diagram
+```text
+[Human Biology (User)]
           ▲
-          │ Renderización UI/UX Sanitizada (Latencia Regulada, Tono Fáctico)
+          │ Sanitized UI/UX Rendering (Regulated Latency, Factual Tone)
           ▼
-[Cliente Local (Browser/OS)]
+[Local Client (Browser/OS)]
           ▲
-          │ Protocolo Local gRPC / REST (Payload de Entrada Crudo)
+          │ Local gRPC / REST Protocol (Raw Input Payload)
           ▼
 ========================================================================
- 🛡️ CAPA DE COHERENCIA (Middleware Local Ejecutado en el Edge)
+ 🛡️ COHERENCE LAYER (Edge-Executed Local Middleware)
 ------------------------------------------------------------------------
- [1. Interceptor de Entrada] -> Mapea inputs erráticos / Velocidad
- [2. Motor de Evaluación]    -> Calcula Línea de Base Dinámica
- [3. Proxy Outbound]         -> Inyecta System Prompts de Contención
+ [1. Inbound Interceptor]  -> Maps erratic inputs / interaction speed
+ [2. Evaluation Engine]    -> Calculates Dynamic Baseline
+ [3. Outbound Proxy]       -> Injects Containment System Prompts
 ========================================================================
           ▲
-          │ Payload Modificado (Inyección de Reglas ETS)
+          │ Modified Payload (ETS Rules Injection)
           ▼
- [Gateway de Red TLS]
+ [TLS Network Gateway]
           ▲
-          │ API Request HTTPS Encapsulado (Red Externa)
+          │ Encapsulated HTTPS API Request (External Web)
           ▼
-[Modelos de Frontera (Big Tech Cloud)]
+[Frontier Models (Big Tech Cloud)]
 
+```
 
-El ciclo operativo se ejecuta en 5 fases secuenciales:
+The system lifecycle executes in 5 sequential phases:
 
-Outbound-Intercept: Captura el prompt del usuario y evalúa dinámicas de tipeo (input_pattern_erraticity) para registrar estados de ansiedad o hiperfoco desregulado.
+Outbound-Intercept: Captures the user's prompt and evaluates keystroke dynamics (input_pattern_erraticity) to detect anxiety states or dysregulated hyperfocus.
 
-Prompt-Injection: Concatena invisiblemente restricciones semánticas rígidas al System Prompt original antes de que la petición abandone el dispositivo local.
+Prompt-Injection: Invisibly appends rigid semantic formatting constraints to the original System Prompt before the API request leaves the local device.
 
-Inbound-Intercept: Captura la respuesta entrante por streaming (Server-Sent Events) bloqueando su renderizado inmediato en pantalla.
+Inbound-Intercept: Intercepts incoming streaming data (Server-Sent Events), blocking direct and immediate rendering on the user's viewport.
 
-Sanitization & Gating: Acumula los tokens en un Buffer Cognitivo Temporal, analiza desvíos de tono (adulación, persuasión manipulatoria o condescendencia) y reescribe o descarta los fragmentos corruptos.
+Sanitization & Gating: Pools tokens inside a Temporal Cognitive Buffer, analyzes semantic anomalies (sycophancy, cognitive bias, passive manipulation), and rewrites or drops contaminated text chunks.
 
-Normalized Delivery: Libera los datos limpios hacia la UI bajo una tasa de goteo constante síncrona con la velocidad de lectura humana óptima.
+Normalized Delivery: Releases sanitized text packets to the UI at a constant, uniform streaming rate matched to optimal human reading velocity.
 
-2. Esquemas de Validación Estrictos (JSON Schema Draft-07)
-
-Esquema de Entrada (Petición Saliente)
-
+2. Validation Schemas (JSON Schema Draft-07)
+Inbound Schema (Request Interception)
+```json
 {
   "$schema": "[http://json-schema.org/draft-07/schema#](http://json-schema.org/draft-07/schema#)",
   "title": "ETS_Inbound_Request_Audit",
@@ -103,9 +99,10 @@ Esquema de Entrada (Petición Saliente)
   "required": ["request_id", "client_telemetry", "raw_payload"]
 }
 
+```
+Outbound Schema (Sanitized Biocompatible Response)
 
-Esquema de Salida (Respuesta Biocompatible)
-
+```json
 {
   "$schema": "[http://json-schema.org/draft-07/schema#](http://json-schema.org/draft-07/schema#)",
   "title": "ETS_Outbound_Response_Sanitized",
@@ -136,11 +133,10 @@ Esquema de Salida (Respuesta Biocompatible)
   },
   "required": ["response_id", "sanitization_metadata", "biocompatible_content"]
 }
+```
 
-
-3. Algoritmo de Regulación de Flujo (Leaky Bucket para Tokens)
-
-Para neutralizar el Jitter Semántico (ráfagas erráticas de tokens que quiebran el ritmo biológico de la lectura), el middleware acumula la transmisión externa e implementa una tasa de liberación constante.
+3. Flow Regulation Algorithm (Token Leaky Bucket)
+To neutralize Semantic Jitter (irregular bursts of token streaming that degrade visual reading tracking), the local middleware pools incoming packets and forces a constant, biocompatible release rate.
 
 import time
 import queue
@@ -148,12 +144,13 @@ import queue
 class CoherenceTokenBuffer:
     def __init__(self, target_wpm=250):
         self.buffer = queue.Queue()
-        # 250 palabras por minuto promedio equivalen a un intervalo estable de ~180ms por token
+        # 250 WPM average equates to a stable output interval of ~180ms per token
         self.token_release_interval = 60.0 / (target_wpm * 1.33) 
         self.is_streaming_active = True
-
+        
+```python
     def receive_from_remote_api(self, token):
-        # Fase Inbound-Intercept: Almacena en el buffer sin pasarlo a la UI
+        # Inbound-Intercept: Store in buffer without passing directly to UI
         self.buffer.put(token)
 
     def start_biocompatible_render(self, ui_callback):
@@ -161,25 +158,15 @@ class CoherenceTokenBuffer:
             if not self.buffer.empty():
                 sanitized_token = self.sanitize_token_logic(self.buffer.get())
                 ui_callback(sanitized_token)
-                time.sleep(self.token_release_interval) # Latencia biológica normalizada
+                time.sleep(self.token_release_interval) # Uniform biological pacing
             else:
-                time.sleep(0.01) # Evita el sobrecalentamiento del hilo local
+                time.sleep(0.01) # Avoid local CPU thread spinning
 
     def sanitize_token_logic(self, token):
-        # Remueve la adulación corporativa e hipocresía algorítmica
+        # Strip away synthetic corporate sycophancy and automated bias
         if token.lower() in ["¡excelente!", "increíble", "lo siento, como ia..."]:
             return ""
         return token
+```
 
-
-4. Protocolo Zero-Knowledge Compliance (ZKP)
-
-Para auditar modelos propietarios de caja negra sin vulnerar el secreto comercial de las empresas desarrolladoras, el estándar implementa pruebas zk-SNARKs (Zero-Knowledge Succinct Non-Interactive Arguments of Knowledge).
-
-Dataset de Stress-Test: El HFC provee un conjunto de prompts de prueba ciegos al entorno aislado de la corporación tecnológica.
-
-Atestación Local: El modelo ejecuta la inferencia dentro de un entorno seguro de hardware (Secure Enclave).
-
-Generación de la Prueba ($\pi$): El sistema computa una prueba criptográfica que demuestra matemáticamente que las respuestas generadas no violaron los umbrales de manipulación semántica ni los límites de latencia del ETS.
-
-Verificación Abierta: La prueba se publica en un libro contable distribuido (Blockchain) para su validación instantánea por parte del Jurado de Conciencia Tecnológica, emitiendo la certificación sin haber expuesto los pesos de la red neuronal ni el código propietario.
+4. Zero-Knowledge Compliance (ZKP) ProtocolTo audit proprietary black-box neural networks without violating intellectual property or commercial secrecy, the standard deploys zero-knowledge cryptographic proofs (specifically zk-SNARKs).Stress-Test Dataset: X8 Mind provides a blinded collection of diagnostic evaluation prompts to the developer's secure environment.Local Attestation: The the target model runs inference tasks within a local hardware-isolated environment (Secure Enclave).Proof Generation ($\pi$): The system generates a succinct cryptographic proof verifying that output strings and latencies complied with ETS threshold constraints under test.Open Verification: The proof $\pi$ is published to a decentralized, distributed ledger (blockchain) for real-time verification by the Jury of Technological Conscience, granting certifications without revealing model parameters, weights, or training data.
