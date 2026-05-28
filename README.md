@@ -31,13 +31,16 @@ To ensure structural integrity, the ETS Standard is governed by a decentralized 
 * **Ring 2 (Technical Council):** A curated body of peer-review experts (GenX focus) who debate and vote on architectural changes. No PR can be merged without at least 2 community approvals from this ring.
 * **Ring 1 (Core/Founder):** Final architectural veto and official main branch merge control.
 
-## 💬 How to Contribute (RFC Process)
-This is a living framework. We formally invite software engineers, neuroscientists, AI safety researchers, and regulators to dissect this document, raise technical objections, and propose optimizations.
+### How to Contribute (RFC Process)
+
+This is a living framework. We formally invite software engineers, neuroscientists, AI safety researchers, and regulators to audit this document, raise technical objections, and propose optimizations.
 
 To contribute:
-1. Review the full specification docs in the `/docs` folder.
-2. Open a thread in the **Issues** section to debate structural enhancements.
-3. Submit a **Pull Request** for architectural updates.
+1. Review the complete specification documents in the [/docs](docs/) folder:
+   * [ISN Specification (Metrics)](docs/ISN_SPEC.md)
+   * [Coherence Layer Architecture (Middleware)](docs/COHERENCE_LAYER_ARCHITECTURE.md)
+2. Open a thread in the Issues section to discuss structural improvements.
+3. Submit a Pull Request for architectural updates.
 
 ---
 **The symbiosis with technology is inevitable, but ultimate control must remain biological.**
