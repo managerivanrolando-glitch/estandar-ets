@@ -40,7 +40,7 @@ Horizon 2: The Near Future (Symbiotic Governance)
 
 The ETS is designed as an open, evolving infrastructure. The technical council of X8 Mind invites global collaboration to formalize specifications across the following uncharted sectors:
 
-
+```text
  ┌──────────────────────────────────────────────────────────────────┐
  │                    X8 MIND OPEN IDEATION MAP                     │
  └──────────────────────────────────────────────────────────────────┘
@@ -56,5 +56,23 @@ The ETS is designed as an open, evolving infrastructure. The technical council o
    └──► [SPEC-009: Cognitive Bug Bounties Ecosystem]
         └── Distributed mechanism to financially incentivize white-hat 
             hackers who expose subliminal manipulation vectors in live apps.
+```
+4. Implementation Roadmap (The 3 Phases)
 
+Phase 1: Open Source Deployment & RFC Launch (Immediate)
 
+[cite_start]Milestone: Release of the core specifications (ISN_SPEC.md, COHERENCE_LAYER_ARCHITECTURE.md) to the open developer ecosystem to trigger rigorous peer review[cite: 1, 2].
+
+[cite_start]Tactical Application: Native implementation of an alpha coherence middleware into X8 Mind reference implementations, validating system feasibility in open markets[cite: 1, 2].
+
+Phase 2: Decentralized Ecosystem & Collective Vauderie (Mid-Term)
+
+[cite_start]Milestone: Deployment of the Jury of Technological Conscience smart contract on decentralized public infrastructure[cite: 1, 2].
+
+[cite_start]Tactical Application: Activating the Cognitive Bug Bounty protocol to crowdsource auditing tasks to independent data scientists, granting the "ETS-Biocompatible Seal" to ethical software providers[cite: 1, 2].
+
+Phase 3: Hardware Infiltration & Legislative Anchoring (Long-Term)
+
+[cite_start]Milestone: Shifting validation rules from application-level software proxies to physical silicon processing architectures (Edge Hardware Compliance)[cite: 1, 2].
+
+[cite_start]Tactical Application: Leveraging international legal precedents (e.g., EU AI Act Art. 5, Chile Neuro-rights constitutional frameworks) to mandate ETS technical specifications as a core requirement for commercial software operational licenses[cite: 1, 2]
