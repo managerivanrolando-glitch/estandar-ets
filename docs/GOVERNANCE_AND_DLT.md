@@ -1,80 +1,76 @@
-ETS SPEC-004: Gobernanza Descentralizada y Criptoeconomía (X8 Mind)
+# ETS SPEC-004: Decentralized Governance and Cryptoeconomics (X8 Mind)
+**Version:** 1.0.0-Draft  
+**Status:** Formal Specification Proposal (RFC-ETS-001)  
+**Promoting Entity:** X8 Mind (Empathetic Technology Architecture)  
+**Area:** Infrastructure Governance / Tokenomics and Incentives  
 
-Versión: 1.0.0-Draft
+---
 
-Estado: Propuesta de Especificación Formal (RFC-ETS-001)
+## 1. Hybrid Governance Model: X8 Mind Open Consortium
+The Empathetic Technology Standard (ETS) is an open-source public specification governed under the technical stewardship of **X8 Mind**. This prevents bureaucratic policy capture and protects the framework from monetization pressure from big tech conglomerates.
 
-Entidad Promotora: X8 Mind (Nueva Tecnología Empática)
+### 1.1 Decision-Making Rings (X8 Steering Model)
+Code base evolution and technical specifications are governed by three concentric control layers:
 
-Área: Gobernanza de Infraestructura / Incentivos y Criptoeconomía
-
-1. Modelo de Gobernanza Híbrido: Consorcio Abierto X8 Mind
-
-El Estándar de Tecnología Empática (ETS) v1.0 está diseñado como un estándar público de código abierto, pero administrado y auditado técnicamente bajo el liderazgo de X8 Mind. Esto garantiza que el estándar no sufra de la parálisis política de los consorcios tradicionales ni sea capturado por los intereses corporativos de las Big Tech.
-
-1.1 Estructura de Anillos de Decisión (X8 Steering Model)
-
-La evolución del código de las especificaciones se rige por tres capas concéntricas de control de cambios:
-
+```text
  ┌────────────────────────────────────────────────────────┐
- │ Anillo 3: Comunidad Abierta (Forks, Issues, RFCs)     │
+ │ Ring 3: Open Community (Forks, Issues, RFCs)           │
  │   ┌────────────────────────────────────────────────┐   │
- │   │ Anillo 2: Consejo Técnico X8 Mind (Reviewers)  │   │
+ │   │ Ring 2: X8 Mind Technical Council (Reviewers)  │   │
  │   │   ┌────────────────────────────────────────┐   │   │
- │   │   │ Anillo 1: X8 Mind Core (Veto/Fusión)   │   │   │
+ │   │   │ Ring 1: X8 Mind Core (Veto/Merge)      │   │   │
  │   │   └────────────────────────────────────────┘   │   │
  │   └────────────────────────────────────────────────┘   │
  └────────────────────────────────────────────────────────┘
+```
 
+Ring 3 (Community): Engineers, neuroscientists, and developers propose optimizations through open Request for Comments (RFCs) on GitHub.
 
-Anillo 3 (Comunidad): Desarrolladores, neurocientíficos y usuarios proponen mejoras estructurales mediante solicitudes de comentarios (RFC) abiertas en GitHub.
+Ring 2 (Technical Review Board): A specialized advisory board coordinated by X8 Mind that reviews physiological, cognitive, and software impacts. Pull Requests require approval from at least two Ring 2 reviewers.
 
-Anillo 2 (Consejo de Revisión Técnica): Un cuerpo colegiado coordinado por X8 Mind que evalúa el impacto biológico y técnico de los cambios. Toda propuesta de combinación (Pull Request) requiere la aprobación de al menos dos miembros acreditados de este anillo.
+Ring 1 (X8 Mind Core): Retains permanent administrative keys and master veto authority to authorize main-branch code mergers, safeguarding the foundational axiom: For, To, and With the Human.
 
-Anillo 1 (X8 Mind Core): Conserva la firma de veto final y el control oficial de fusión (Merge) en las ramas principales de producción para resguardar el axioma fundamental: Por, Para y Con el Humano.
+2. Jury of Technological Conscience (Smart Contract)
+To decentralize compliance validation and prevent corporate certification bias, X8 Mind delegates dispute resolution and active auditing to an autonomous smart contract running on an EVM-compatible decentralized ledger.
 
-2. El Jurado de Conciencia Tecnológica (Smart Contract)
+2.1 Smart Contract Interface (Solidity Core Contract)
+The Solidity contract allows for black-box model registrations, cryptographic judge assignments using blind randomness, and immutable multi-signature verification.
 
-Para descentralizar las auditorías y evitar la corrupción de los procesos de certificación, X8 Mind delega la resolución de disputas de cumplimiento en un Jurado de Conciencia Tecnológica autónomo ejecutado en una cadena de bloques de alta velocidad y baja latencia (EVM-compatible).
-
-2.1 Lógica de Contrato Inteligente (Solidity Core Interface)
-
-Este contrato permite registrar modelos de IA, designar jueces mediante sorteo criptográfico ciego (para evitar sobornos corporativos) y emitir el veredicto de biocompatibilidad:
-
+```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
 /**
- * @title JuradoDeConcienciaETS
- * @dev Contrato maestro para la asignación y verificación de auditorías de biocompatibilidad bajo el ETS.
- * Administrado inicialmente por X8 Mind.
+ * @title JuryOfTechnologicalConscienceETS
+ * @dev Core smart contract managing biocompatibility audit assignments and verification under ETS.
+ * Initial administrative keys held by X8 Mind.
  */
-contract JuradoDeConcienciaETS {
+contract JuryOfTechnologicalConscienceETS {
     
     address public x8MindAdmin;
     
-    enum EstadoAuditoria { Inexistente, Pendiente, Aprobado, Rechazado }
+    enum AuditState { NonExistent, Pending, Approved, Rejected }
     
-    struct Auditoria {
-        string identificadorModelo;
-        address empresaDesarrolladora;
-        EstadoAuditoria estado;
-        uint256 hashPruebaZKP; // Hash de la prueba de conocimiento cero (zk-SNARK)
-        address[] juecesAsignados;
-        mapping(address => bool) votos;
-        uint8 votosFavorables;
-        uint8 totalVotosRegistrados;
+    struct Audit {
+        string modelIdentifier;
+        address developingEntity;
+        AuditState state;
+        uint256 zkpProofHash; // Hash of the Zero-Knowledge cryptographic attestation
+        address[] assignedJudges;
+        mapping(address => bool) votes;
+        uint8 positiveVotes;
+        uint8 totalVotesCast;
     }
     
-    mapping(bytes32 => Auditoria) public registroAuditorias;
-    address[] public padronJuecesCertificados;
+    mapping(bytes32 => Audit) public auditRegistry;
+    address[] public certifiedJudgesPool;
 
-    event AuditoriaIniciada(bytes32 indexed idAuditoria, string modelo, address[] jueces);
-    event VotoRegistrado(bytes32 indexed idAuditoria, address indexed juez, bool aprobado);
-    event AuditoriaFinalizada(bytes32 indexed idAuditoria, EstadoAuditoria estado);
+    event AuditInitiated(bytes32 indexed auditId, string model, address[] judges);
+    event VoteCast(bytes32 indexed auditId, address indexed judge, bool approved);
+    event AuditFinalized(bytes32 indexed auditId, AuditState state);
 
-    modifier soloX8Mind() {
-        require(msg.sender == x8MindAdmin, "Error: Requiere autorizacion de X8 Mind.");
+    modifier onlyX8Mind() {
+        require(msg.sender == x8MindAdmin, "Error: Unauthorized. Action requires X8 Mind credentials.");
         _;
     }
 
@@ -83,95 +79,93 @@ contract JuradoDeConcienciaETS {
     }
 
     /**
-     * @notice Agrega un profesional verificado al padrón para sorteos de auditoría.
+     * @notice Registers a certified industry professional to the active auditing pool.
      */
-    function registrarJuez(address _juez) external soloX8Mind {
-        padronJuecesCertificados.push(_juez);
+    function registerJudge(address _judge) external onlyX8Mind {
+        certifiedJudgesPool.push(_judge);
     }
 
     /**
-     * @notice Inicia un proceso de auditoría con selección ciega de jueces.
+     * @notice Initializes an auditing process with randomized blind judge selection.
      */
-    function iniciarAuditoria(string memory _modelo, bytes32 _idAuditoria, uint256 _zkpHash) external {
-        require(registroAuditorias[_idAuditoria].estado == EstadoAuditoria.Inexistente, "Auditoria ya iniciada.");
-        require(padronJuecesCertificados.length >= 3, "Padron de jueces insuficiente.");
+    function initiateAudit(string memory _model, bytes32 _auditId, uint256 _zkpHash) external {
+        require(auditRegistry[_auditId].state == AuditState.NonExistent, "Audit already initialized.");
+        require(certifiedJudgesPool.length >= 3, "Insufficient certified judges pool.");
 
-        Auditoria storage nuevaAuditoria = registroAuditorias[_idAuditoria];
-        nuevaAuditoria.identificadorModelo = _modelo;
-        nuevaAuditoria.empresaDesarrolladora = msg.sender;
-        nuevaAuditoria.estado = EstadoAuditoria.Pendiente;
-        nuevaAuditoria.hashPruebaZKP = _zkpHash;
+        Audit storage newAudit = auditRegistry[_auditId];
+        newAudit.modelIdentifier = _model;
+        newAudit.developingEntity = msg.sender;
+        newAudit.state = AuditState.Pending;
+        newAudit.zkpProofHash = _zkpHash;
 
-        // Selección seudoaleatoria ciega de 3 jueces del padrón
-        uint256 semilla = uint256(keccak256(abi.encodePacked(block.timestamp, block.prevrandao, _idAuditoria)));
+        // Psuedorandom blind selection of 3 judges from pool
+        uint256 seed = uint256(keccak256(abi.encodePacked(block.timestamp, block.prevrandao, _auditId)));
         for (uint256 i = 0; i < 3; i++) {
-            uint256 indiceJuez = (semilla + i) % padronJuecesCertificados.length;
-            nuevaAuditoria.juecesAsignados.push(padronJuecesCertificados[indiceJuez]);
+            uint256 judgeIndex = (seed + i) % certifiedJudgesPool.length;
+            newAudit.assignedJudges.push(certifiedJudgesPool[judgeIndex]);
         }
 
-        emit AuditoriaIniciada(_idAuditoria, _modelo, nuevaAuditoria.juecesAsignados);
+        emit AuditInitiated(_auditId, _model, newAudit.assignedJudges);
     }
 
     /**
-     * @notice Permite a un juez asignado registrar su veredicto tras validar localmente la telemetría.
+     * @notice Submits a verification vote from an assigned judge.
      */
-    function emitirVeredicto(bytes32 _idAuditoria, bool _aprobado) external {
-        Auditoria storage aud = registroAuditorias[_idAuditoria];
-        require(aud.estado == EstadoAuditoria.Pendiente, "La auditoria no esta pendiente.");
+    function castVeredict(bytes32 _auditId, bool _approved) external {
+        Audit storage aud = auditRegistry[_auditId];
+        require(aud.state == AuditState.Pending, "Target audit is not in a pending state.");
         
-        bool esJuezAsignado = false;
-        for (uint256 i = 0; i < aud.juecesAsignados.length; i++) {
-            if (aud.juecesAsignados[i] == msg.sender) {
-                esJuezAsignado = true;
+        bool isAssigned = false;
+        for (uint256 i = 0; i < aud.assignedJudges.length; i++) {
+            if (aud.assignedJudges[i] == msg.sender) {
+                isAssigned = true;
                 break;
             }
         }
-        require(esJuezAsignado, "Remitente no autorizado para esta auditoria.");
-        require(!aud.votos[msg.sender], "El voto ya fue emitido.");
+        require(isAssigned, "Sender is not an assigned judge for this audit.");
+        require(!aud.votes[msg.sender], "Vote already recorded from this address.");
 
-        aud.votos[msg.sender] = true;
-        aud.totalVotosRegistrados++;
+        aud.votes[msg.sender] = true;
+        aud.totalVotesCast++;
         
-        if (_aprobado) {
-            aud.votosFavorables++;
+        if (_approved) {
+            aud.positiveVotes++;
         }
 
-        emit VotoRegistrado(_idAuditoria, msg.sender, _aprobado);
+        emit VoteCast(_auditId, msg.sender, _approved);
 
-        // Resolución de la votación al completar los 3 veredictos
-        if (aud.totalVotosRegistrados == 3) {
-            if (aud.votosFavorables >= 2) {
-                aud.estado = EstadoAuditoria.Aprobado;
+        // Resolve audit status when all 3 votes are registered
+        if (aud.totalVotesCast == 3) {
+            if (aud.positiveVotes >= 2) {
+                aud.state = AuditState.Approved;
             } else {
-                aud.estado = EstadoAuditoria.Rechazado;
+                aud.state = AuditState.Rejected;
             }
-            emit AuditoriaFinalizada(_idAuditoria, aud.estado);
+            emit AuditFinalized(_auditId, aud.state);
         }
     }
 }
 
+```
+3. Computational Biocompatibility Tax (FLOPs Tax)
+Sustained compliance monitoring of hyperscale models requires autonomous funding structures. The ETS introduces a Computational Biocompatibility Tax targeting hardware consumption during model training and serving phases on non-compliant networks.
 
-3. La Tasa de Biocompatibilidad Computacional (FLOPs Tax)
+3.1 Mathematical Formulation
+To calculate the appropriate compensatory funding due, the algorithm processes the metabolic friction footprint of the deployment infrastructure:
 
-La fiscalización técnica de modelos masivos requiere financiamiento independiente y constante. El estándar ETS introduce una Tasa de Cómputo aplicada a los recursos de hardware consumidos por las Big Tech durante el entrenamiento e inferencia de modelos no certificados.
+```Plaintext
+FLOPs_Tax = ( Total_FLOPs_Consumed * Semantic_Fatigue_Coefficient ) * ( 1.0 - Biocompatibility_Level )
+```
 
-3.1 Modelo de Cálculo Impositivo
+Where:
 
-Para determinar el canon correspondiente a pagar por una corporación desarrolladora, el estándar calcula el impacto metabólico de su infraestructura mediante la siguiente ecuación:
+Total FLOPs Consumed: Raw computing footprint processed by server farms.
 
-Tasa_FLOPs = ( Total_FLOPs_Consumidos * Coeficiente_Fatiga_Semantica ) * ( 1.0 - Nivel_Biocompatibilidad )
+Semantic Fatigue Coefficient: A dynamic scalar (1.0 to 2.0) proportional to user cognitive stress, dark patterns, or Jitter logged by X8 Mind clients.
 
+Biocompatibility Level: Certified standard tier achieved by the architecture under test (ETS-A = 0.50, ETS-AA = 0.85, ETS-AAA = 1.00). An AAA-certified model achieves a multiplier of 0.0, completely exempting it from the tax, driving voluntary commercial alignment.
 
-Donde:
+4. Immutable Reputation Ledger (Compliance Ledger)
+All audit verdicts and Zero-Knowledge proofs are immutably written to a public distributed ledger. This compiles a decentralized Biocompatible Reputation Index that any runtime browser, operating system, or IDE can poll natively before initiating connection handshakes with remote APIs.
 
-Total FLOPs Consumidos: La potencia de cómputo bruta ejecutada por los clusters de servidores.
-
-Coeficiente de Fatiga Semántica: Una variable escalar (de 1.0 a 2.0) proporcional a la cantidad de patrones persuasivos o Jitter registrados por la telemetría de X8 Mind.
-
-Nivel de Biocompatibilidad: El nivel certificado del modelo (ETS-A = 0.50, ETS-AA = 0.85, ETS-AAA = 1.00). Un modelo que cumpla con el estándar de máxima seguridad (Nivel AAA) queda completamente exento de la tasa (multiplicador por 0.0), promoviendo la transición voluntaria hacia tecnologías biocompatibles.
-
-4. Registro de Reputación Inalterable (Compliance Ledger)
-
-Los resultados de todas las auditorías y las atestaciones de Conocimiento Cero se anclan en un libro contable distribuido público de acceso abierto. Esto genera un Índice de Reputación Biocompatible en tiempo real que cualquier sistema operativo o navegador puede consultar de forma nativa antes de permitir la conexión con una API de IA.
-
-Si una corporación tecnológica degrada la calidad de su modelo mediante actualizaciones de fondo (silent rollouts) que elevan el ISN del usuario, el middleware local de X8 Mind reportará automáticamente el quiebre de consistencia, reduciendo su índice de reputación en el Ledger público de forma inmediata e inalterable.
+If silent backend code deployments (silent rollouts) increase user cognitive strain (ISN), local client middleware instantly registers the breach, decrementing the model's reputation score on-chain in an immutable, trustless manner.
